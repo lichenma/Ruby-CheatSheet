@@ -148,6 +148,8 @@ end
 
 **Cleaning Upa a Bit** 
 
+The `let` keyword allows us to reuse the same object in all tests under the same describe block. 
+
 
 The above pattern works but can be a bit tiresome to repeat all the time. RSpec gives us some helper methods to generalize it. We could rewrite the above using the `let` keyword to make the variable automatically. The variable would then get created the first time it is accessed: 
 
@@ -224,10 +226,17 @@ end
 ```
 
 
+**Getting Started** 
+
+RSpec is a testing tool for Ruby, created for behavior-driven development (BDD). It is the most frequently used testing library for Ruby in production applications. Even through it has a very rich and powerful DSL (domain-specific language), at its core is a simple tool which can be used rather quickly. 
+
+Behavior-driven development is a concept built on top of TDD. The idea is to write tests as specifications of system behavior. 
+
+
         
         
 
-```
+
 
 
 
