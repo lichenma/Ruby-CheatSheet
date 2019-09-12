@@ -200,5 +200,24 @@ end
 ```
 
 
+One neat thing about rspec is that the built in matchers will let you declaratively specify methods in your tests if they conform to a certain naming convention. RSpec will look for methods that are named with `has` and end in a question mark to let you write declarative test code. Here is what the final Burger class can look like with that idiom. Here is what our `burger_spec.rb` will look like: 
+
+
+```ruby 
+describe Burger do 
+    describe "#apply_ketchup" do 
+        subject { burger }
+        before { burger.apply_ketchup }
+
+        context "with ketchup" do 
+            let(:burger) { Burger.new(:ketchup => true) }
+            it { should have_ketchup_on_it }
+        end 
+        
+        
+
+```
+
+
 
 
