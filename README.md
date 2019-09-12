@@ -152,5 +152,53 @@ end
 The above pattern works but can be a bit tiresome to repeat all the time. RSpec gives us some helper methods to generalize it. We could rewrite the above using the `let` keyword to make the variable automatically. The variable would then get created the first time it is accessed: 
 
 
+```ruby 
+describe Burger do
+    describe "#apply_ketchup" do 
+        context "with ketchup" do 
+            let(:burger) { Burger.new(:ketchup => true) }
+            before { burger.apply_ketchup }
+
+            it "sets the ketchup flag to true" do 
+                burger.has_ketchup_on_it?.should be_true
+            end 
+        end 
+
+        context "without ketchup" do 
+            let(:burger) { Burger.new(:ketchup => false) }
+            before { burger.apply_ketchup }
+
+            it "sets the ketchup flag to false" do 
+                burger.has_ketchup_on_it?.should be_false
+            end 
+        end 
+    end 
+end 
+```
+
+This is nice but we can clean it up even further using the `subject` method. The `subject` method tells rspec what we are doing the tests on. We are going to combine the specify method in the next example. The `specify` method is just like the `it` method except the `specify` method takes the code block as the description of the test: 
+
+```ruby 
+describe Burger do 
+    describe "#apply_ketchup" do 
+        subject { burger }
+        before  { burger.apply_ketchup }
+
+        context "with ketchup" do 
+            let(:burger) { Burger.new(:ketchup => true) }
+            
+            specify { subject.has_ketchup_on_it?.should be_true }
+        end 
+
+        context "without ketchup" do 
+            let(:burger) { Burger.new(:ketchup => true) }
+
+            specify { subject.has_ketchup_on_it?.should be_false}
+        end 
+    end 
+end 
+```
+
+
 
 
