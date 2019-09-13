@@ -246,8 +246,35 @@ describe ClassRoom do
         student2 = double('student')
 
         allow(student1).to receive(:name) { 'John Smith'}
-        allow(student)
-        
+        allow(student2).to receive(:name) { 'Jill Smith'}
+
+        cr = ClassRoom.new [student1, student2]
+        expect(cr.list_student_names).to eq('John Smith,Jill Smith')
+    end 
+end 
+```
+
+
+**Allow method** 
+
+Suppose we have the following code block: 
+
+```ruby 
+book = double("book")
+allow(book).to receive(:title) { "The RSpec Book" }
+expect(book).to receive(:title) { "The RSpec Book" }
+```
+
+In the case of the `expect` statement, we expect that when the book object calls title method it will return the string "The RSpec Book". However for the  `allow` statement we **assume that book object has a method title and it will return "The RSpec Book** when the method is called. 
+
+
+
+
+
+
+
+
+
 
 
 
