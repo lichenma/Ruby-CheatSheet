@@ -269,6 +269,75 @@ In the case of the `expect` statement, we expect that when the book object calls
 
 
 
+**Fabrication** 
+
+Fabrication generates objects in Ruby. Fabricators are schematics for your objects and can be created as needed anywhere in your app or specs. 
+
+Fabrication can generate anything, but has specific support for ActiveRecord Models, Mongoid Documents, Sequel Models, and DataMapper Resources. 
+
+
+To use it with Bundler just add it to your gemfile
+
+```ruby 
+gem 'fabrication'
+```
+
+You can define a schematic for generating objects by defining Fabricators as 
+
+`spec/fabricators/**/*fabricator.rb`
+
+
+Fabricators are loaded automatically - so as long as they are in the right place we are good to go. 
+
+Let's say that we have a `Person` model with the usual fields and some associations: 
+
+
+```ruby 
+class Person < ActiveRecord::Base 
+    belongs_to :neighborhood 
+    has_many :houses
+end 
+```
+
+You could then create a `Fabricator` to automatically generate copies of `Person` for your test suite. 
+
+```ruby 
+# Located in spec/fabricators/person_fabricator.rb 
+
+Fabricator(:person) do 
+    neighborhood 
+    houses(count: 2)
+    name { Faker::Name.name }
+    age 45
+    gender { %w(M F).sample }
+end 
+``` 
+
+Every time you fabricate a person, you will get a brand-new instance of a person model persisted to the database and containing the fields you specified. In the case above, `neighborhood` and `houses` would automatically expand out to use the fabricators for those models and be persisted as well. 
+
+
+
+**Fabricating Instances** 
+
+Once we have defined some fabricators, we can use them anywhere in the application. This is especially useful in populating scripts for development and staging environments as well as in the test suite. 
+
+
+We can Fabricate a new instance of the person object we defined above every time we call: 
+
+`Fabricate(:person)`
+
+We can also provide overrides to the default options at `Fabricate` time with a hash or the same block syntax you used to define the Fabricator. 
+
+
+```ruby 
+Fabricate(:person, name: 'Paul Elliott', gender: 'M') do 
+    houses { [Fabricate(:house, location: 'the beach')] }
+end 
+```
+
+
+
+
 
 
 
