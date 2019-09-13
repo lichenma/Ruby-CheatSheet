@@ -235,9 +235,19 @@ Behavior-driven development is a concept built on top of TDD. The idea is to wri
 
         
         
+**RSpec Stubs** 
 
+In RSpec, a stub is often called a Method Stub and its a special type of method that **"stands in" for an existing method or for a method that doesn't even exist yet**. 
 
+```ruby 
+describe ClassRoom do 
+    it 'the list student names method should work correctly' do 
+        student1 = double('student')
+        student2 = double('student')
 
+        allow(student1).to receive(:name) { 'John Smith'}
+        allow(student)
+        
 
 
 
