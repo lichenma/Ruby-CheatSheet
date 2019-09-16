@@ -361,6 +361,11 @@ end
 ```
 
 
+# Attributes 
+
+In OOP, the `member access control` concept is important as it allows programmers to control the access to encapsulated variables. **Member Access Controls separates the public interface of a class from the private implementation details and the protected members.** In many programming languages this concept is implemented by using `getters` and `setters` for each member. In Ruby, the `attr_*` methods are in charge of the member access control.   
+
+
 
 
 
