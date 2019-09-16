@@ -335,6 +335,15 @@ Fabricate(:person, name: 'Paul Elliott', gender: 'M') do
 end 
 ```
 
+If we don't want to persist the object in the database we can use `Fabricate.build` and skip the save step. All the normal goodness when Fabricating is available for building as well. 
+
+
+```ruby 
+Fabricate.build(:person)
+```
+
+
+
 
 # Constructors
 
