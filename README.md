@@ -336,6 +336,24 @@ end
 ```
 
 
+# Constructors
+
+A constructor is a special method of the class that gets automatically invoked whenever an instance of the class is created. Like methods, a constructor may also contain the group of instructions or a method which will execute at the time of object creation. 
+
+Whenever an object of the class is created using new method, internally it calls the `initialize` method on the new object. Also all arguments passed to `new` will automatically pass the method initialize. 
+
+
+
+```ruby 
+class Class_Name 
+    def initalize(parameter_list) 
+    end 
+end 
+```
+
+
+
+
 
 
 
