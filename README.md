@@ -43,6 +43,16 @@ In Ruby, blocks are snippets of code that can be created to be executed later. B
 
 
 ```Ruby 
+# Function definition for each 
+def each 
+    i = 0
+    while i < size 
+        yield at(i)
+        i += 1 
+    end 
+end 
+
+
 [1,2,3].each do |n|
     puts "#{n}!"
 end 
@@ -50,8 +60,16 @@ end
 [1,2,3].each { |n| puts "#{n}!"} # one line equivalent 
 ```
 
+In this example, a block is passed to the `Array#each` method, which runs the block for each item in the array and prints it to the console. In the `while` loop, `yield` is called to execute the passed block for every item in the array. 
 
 
+
+
+## Implicit Blocks and "yield" Keyword 
+
+
+
+  
 
 
 
