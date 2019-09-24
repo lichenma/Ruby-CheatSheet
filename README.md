@@ -25,7 +25,12 @@ array.map {|string| string.upcase}
 We call the `map` with a block where the block is the thing between the `{...}` which says HOW we want to transform every element in the array. Map returns a new array with the transformed element - it does the same thing as `each` except each always **returns the original unchanged object.**
 
 
-## RSpec 
+
+# Closures in Ruby: Blocks, Procs and Lambdas
+
+
+
+# RSpec 
 
 ### Expecting messages 
 
