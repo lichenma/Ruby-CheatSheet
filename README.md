@@ -67,7 +67,7 @@ In this example, a block is passed to the `Array#each` method, which runs the bl
 
 ## Implicit Blocks and "yield" Keyword 
 
-
+In Ruby, methods can take blocks implicitly and explicitly. Implicit block passing works by calling the `yield` keyword in a method. This `yield` keyword is special as it **finds and calls a passed block, so the programmer does not need to add the block to the list of arguments the method accepts**. 
 
   
 
