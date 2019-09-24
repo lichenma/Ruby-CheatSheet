@@ -69,7 +69,34 @@ In this example, a block is passed to the `Array#each` method, which runs the bl
 
 In Ruby, methods can take blocks implicitly and explicitly. Implicit block passing works by calling the `yield` keyword in a method. This `yield` keyword is special as it **finds and calls a passed block, so the programmer does not need to add the block to the list of arguments the method accepts**. 
 
-  
+Because Ruby allows implicit block passing, you can call all methods with a block. If it doesn't call `yield`, the block is ignored. 
+
+
+```Ruby
+irb> "foo bar baz".split { p "block!" }
+=> ["food", "bar", "baz"]
+```
+
+If the called method does yield, the **passed block is found and called with any arguments that were passed** to the `yield` keyword. 
+
+
+```Ruby 
+def each 
+    return to_enum(:each) unless block_given? 
+
+    i = 0
+    while i<size 
+        yield at(i)
+        i += 1
+    end 
+end 
+```
+
+This example will return an instance of `Enumerator` unless a block is given. 
+
+The `yield` and `block_given?` keywords find the block in the current scope. This allows passing blocks implicitly, but prevents the code from accessing the block directly as it's not stored in a variable. 
+
+
 
 
 
