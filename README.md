@@ -30,7 +30,28 @@ We call the `map` with a block where the block is the thing between the `{...}` 
 
 In programming languages with **first-class functions**, functions can be stored in variables and passed as arguments to other functions. Functions can even use other functions as their return values. 
 
-A **closure is a first-class function with an environment**. The environment is a mapping to the variables that existed when the closure was created.  
+A **closure is a first-class function with an environment**. The environment is a mapping to the variables that existed when the closure was created. The closure will retain its access to these variables, even if they are defined in another scope. 
+
+
+Ruby doesn't have first-class functions, but it does have closures in the form of blocks, procs and lambdas. **Blocks are used for passing blocks of code to methods**, and **procs/lambdas allow storing blocks of code in variables**. 
+
+
+
+## Blocks 
+
+In Ruby, blocks are snippets of code that can be created to be executed later. Blocks are passed to methods that yield them within the `do` and `end` keywords. One of the many examples is the `#each` method which loops over enumerable objects. 
+
+
+```Ruby 
+[1,2,3].each do |n|
+    puts "#{n}!"
+end 
+
+[1,2,3].each { |n| puts "#{n}!"} # one line equivalent 
+```
+
+
+
 
 
 
