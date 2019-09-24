@@ -98,6 +98,12 @@ The `yield` and `block_given?` keywords find the block in the current scope. Thi
 
 
 
+## Explicitly Passing Blocks 
+
+We can explicitly accept a block in a method by **adding it as an argument using an ampersand parameter (usually called `&block`)**. Since the block is now explicit, we can use the `#call` method directly on the resulting object instead of relying on `yield`. 
+
+
+
 
 
 # RSpec 
