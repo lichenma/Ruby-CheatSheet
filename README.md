@@ -28,6 +28,10 @@ We call the `map` with a block where the block is the thing between the `{...}` 
 
 # Closures in Ruby: Blocks, Procs and Lambdas
 
+In programming languages with **first-class functions**, functions can be stored in variables and passed as arguments to other functions. Functions can even use other functions as their return values. 
+
+A **closure is a first-class function with an environment**. The environment is a mapping to the variables that existed when the closure was created.  
+
 
 
 # RSpec 
